@@ -2,27 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- 移动端按屏幕宽度缩放，不固定 980px -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>is_gay</title>
   <style>
+    /* 让 body 能占满整个视口高度，并去掉浏览器默认外边距 */
     html, body {
       margin: 0;
       height: 100%;
     }
+    /* 整体布局：黑色背景，内容垂直+水平居中，图片和链接之间留 16px 间距 */
     body {
       display: flex;
+      flex-direction: column; /* 图片在上、链接在下，竖着排 */
       align-items: center;
       justify-content: center;
+      gap: 16px;
       background: #000;
+      color: #fff;
+      font-family: system-ui, sans-serif;
     }
+    /* meme 图片：自适应宽度，最高占视口 80%，给下方链接留出空间 */
     img {
       max-width: 100%;
-      max-height: 100vh;
-      object-fit: contain;
+      max-height: 80vh;
+      object-fit: contain; /* 保持图片比例，不拉伸变形 */
+    }
+    /* 说明文本：去掉段落默认外边距，间距统一交给 body 的 gap 控制 */
+    p {
+      margin: 0;
+    }
+    /* 个人网站链接样式：浅蓝色，长链接允许换行避免撑破页面 */
+    a {
+      color: #4da3ff;
+      font-size: 1.1rem;
+      word-break: break-all;
     }
   </style>
 </head>
 <body>
+  <!-- meme 图片，图片文件与 index.html 放在同一目录 -->
   <img src="meme-cat-pointing-and-laughing-81225-original.png" alt="meme">
+  <!-- 链接上方的说明文本（中英双语） -->
+  <p>我的个人项目主页 / My Personal Projects:</p>
+  <!-- 指向个人项目主页的链接，点击在新标签打开由浏览器默认行为处理 -->
+  <a href="https://birthanddeath.github.io/">https://birthanddeath.github.io/</a>
 </body>
 </html>
